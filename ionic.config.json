@@ -1,0 +1,8 @@
+{
+  "name": "front-lamar",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react",
+  "id": "286c0e07"
+}
