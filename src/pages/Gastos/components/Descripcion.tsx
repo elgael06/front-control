@@ -7,8 +7,8 @@ const Descripcion = () => {
         <IonList>
             <br/>
             <IonItem>
-                <IonLabel position='fixed'>Precio</IonLabel>
-                <IonInput type='number' />
+                <IonLabel position='fixed'>Precio $ </IonLabel>
+                <IonInput type='number' min='0'  />
             </IonItem>
             <br/>
             <IonItem>

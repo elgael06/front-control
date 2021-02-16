@@ -1,13 +1,21 @@
 import { IonBadge, IonButton, IonHeader, IonItem, IonLabel, IonList, IonSegment, IonSegmentButton, IonTitle, IonToggle, IonToolbar } from "@ionic/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import Layout from "../../components/Layout/Layout";
+import { addLista } from "../../redux/actions/formGasto";
 import Descripcion from "./components/Descripcion";
 import Tipo from "./components/Tipos";
+import lista from './assets/listaGastos.json';
 
 const opciones:string[] = ['Tipo','Descripcion','Comprobante','Resumen'];
 
 const Gastos: React.FC = () => { 
     const [selected, onSelected] = useState('Tipo');
+    const dispatch = useDispatch();
+
+    useEffect(() => { 
+        dispatch(addLista(lista));
+    },[]);
 
     const onchange = (event:any) => { 
         console.log(event.detail);      
