@@ -19,6 +19,8 @@ const Tipo = () => {
                     key={item.id}
                     type='button'
                     onClick={() => selectItem(item.id)}
+                    lines="none"
+                    detail={false}
                     color={status ? 'light' : ''}
                 >
                     <IonLabel>{item.text}</IonLabel>
