@@ -22,13 +22,14 @@ const Gastos: React.FC = () => {
         onSelected(event.detail.value);
     }
 
-    const Selecciones = (name:string,index:number) => <IonSegmentButton key={name} value={name} title={name}>
+    const taps = (name:string,index:number) => <IonSegmentButton key={name} value={name} title={name}>
             <IonLabel>{index+1}</IonLabel>
     </IonSegmentButton>;
     
-    const pasoSeleccion = () => { 
+    const PasoSeleccion = () => { 
         if (selected == 'Tipo') return <Tipo />;
         else if (selected == 'Descripcion') return <Descripcion />;
+        else  return null;
     }
 
     return <Layout name='Gastos'>
@@ -36,11 +37,11 @@ const Gastos: React.FC = () => {
             <IonTitle>{selected}</IonTitle>
             </IonToolbar>
         
-        <IonSegment onIonChange={onchange} value={`${selected}`} color='tertiary' >
-        {opciones.map((value,index) => Selecciones(value,index))}
+        <IonSegment onIonChange={onchange} value={`${selected}`} color='primary' >
+        {opciones.map((value,index) => taps(value,index))}
         </IonSegment>
         <br />
-        {pasoSeleccion()}
+        <PasoSeleccion />
         <br />
     </Layout>
 }
