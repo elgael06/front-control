@@ -3,6 +3,6 @@
   overflow: auto;
 }
 .lista {
-  height: calc(100% - 150px);
+  height: calc(100% - 210px);
   overflow: auto;
 }

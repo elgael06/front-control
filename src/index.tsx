@@ -5,6 +5,8 @@ import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import store from './redux/store';
+import { defineCustomElements } from '@ionic/pwa-elements/loader';
+
 
 ReactDOM.render(
   <React.StrictMode>
@@ -14,7 +16,7 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 );
-
+defineCustomElements(window);
 serviceWorkerRegistration.unregister();
 
 reportWebVitals();
