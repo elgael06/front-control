@@ -1,0 +1,14 @@
+{
+    "name":"SDCI LaMar",
+    "creator":"mya-app.tech",
+    "title":"Sistema de control interno LaMar",
+    "description":"Este es el sistema de control interno para manejo de persona.En etste sistema se veran diferentes opciones ",
+    "data_access":[
+        {"name":"Destinos","desc":"Programa los destinos actializa datos y verifica tus destinos asignados."},
+        {"name":"Platillos","desc":"Alta, bajas y cambios de los platillos asigna a destino y modifica los existentes."},
+        {"name":"Actividades","desc":"Da de alta las actividades verifica  y asigna los articulos  necesarios para estas por destino."},
+        {"name":"Gastos","desc":"Verifica gastos generales por usuario y por destino da de alta nuevos gastos."},
+        {"name":"Usuarios","desc":"Alta baja y cambios de usuarios en el sistema asi como sus accesos a este"},
+        {"name":"Comentarios","desc":"Revisa y administra los comentarios y las fotos publicadas por destino."}
+    ]
+}
