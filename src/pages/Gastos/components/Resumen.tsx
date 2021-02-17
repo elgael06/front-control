@@ -1,4 +1,4 @@
-import { IonButton, IonImg, IonItem, IonLabel, IonList, IonText } from "@ionic/react";
+import { IonButton, IonCard, IonImg, IonItem, IonLabel, IonList, IonText } from "@ionic/react";
 import { useDispatch, useSelector } from "react-redux";
 import { stateGasto } from "../../../redux/reducers/gasto";
 
@@ -43,11 +43,15 @@ const Resumen: React.FC = () => {
             </IonLabel>
         </IonItem>
 
-        <IonImg src={imgComp || imageFotoBase} />
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <IonCard style={{width:300}}>
+                <IonImg src={imgComp || imageFotoBase} />
+            </IonCard>
+        </div>
         
         </IonList>
         <br/>
-        <IonButton expand='block' > GUARDAR</IonButton>
+        <IonButton expand='block' color='success' > GUARDAR</IonButton>
         </>
 }
 
