@@ -10,7 +10,7 @@ const Tipo = () => {
     const selectItem = (item: string) => dispatch(selectGasto(item));
     const comprobar = (val: string) => val == tipo;
  
-    return (<IonList>
+    return (<IonList className='lista'>
         {
             lista.map(item => {
                 const status = comprobar(item.id);

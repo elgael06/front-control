@@ -13,6 +13,7 @@ import {
 import { useLocation } from 'react-router-dom';
 import { peopleCircle, peopleOutline, cardSharp, cardOutline, accessibility, accessibilityOutline,fastFood,navigateCircle, navigateOutline,homeSharp,homeOutline } from 'ionicons/icons';
 import './Menu.css';
+import data_app from '../../assets/data_app.json';
 
 interface AppPage {
   url: string;
@@ -67,8 +68,8 @@ const Menu: React.FC = () => {
     <IonMenu contentId="main" type="overlay">
       <IonContent>
         <IonList id="inbox-list">
-          <IonListHeader>LamarApp</IonListHeader>
-          <IonNote>mya-app.tech</IonNote>
+          <IonListHeader>{ data_app.name}</IonListHeader>
+          <IonNote>{ data_app.creator}</IonNote>
           {appPages.map((appPage, index) => {
             return (
               <IonMenuToggle key={index} autoHide={false}>

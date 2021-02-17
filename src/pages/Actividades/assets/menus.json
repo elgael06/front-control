@@ -1,0 +1,6 @@
+[
+    {"route":"Actividades/nuevo","title":"Nueva Actividad"},
+    {"route":"Actividades/lista","title":"Lista Actividades"},
+    {"route":"Actividades/filtro","title":"Mis Actividades"},
+    {"route":"Actividades/asignar_destino","title":"Actividades por Destino"}
+]

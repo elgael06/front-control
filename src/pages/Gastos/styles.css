@@ -1,0 +1,8 @@
+.lista-menus {
+  height: calc(100% - 70px);
+  overflow: auto;
+}
+.lista {
+  height: calc(100% - 150px);
+  overflow: auto;
+}

@@ -1,6 +1,6 @@
 {
-  "short_name": "LaMarApp",
-  "name": "App LaMar Sistema de administracion.",
+  "short_name": "LaMar",
+  "name": "LaMar Sistema de control interno.",
   "icons": [
     {
       "src": "assets/icon/favicon.png",

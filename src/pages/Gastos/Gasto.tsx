@@ -1,9 +1,13 @@
-import { IonList } from "@ionic/react";
+import { IonIcon, IonItem, IonLabel, IonList } from "@ionic/react";
+import { menu, send } from "ionicons/icons";
+import Layout from "../../components/Layout/Layout";
 import SubMenu from "../../components/SubMenus/SubMenus";
 import Title from "../../components/Title";
-import menus from './assets/meus.json';
 
-const Usuarios: React.FC = () => { 
+import menus from './assets/menu.json';
+
+
+const Gasto:React.FC = () => { 
 
     return (<>
         <Title name='Menú' />
@@ -14,4 +18,5 @@ const Usuarios: React.FC = () => {
     </>);
 }
 
-export default Usuarios;
+
+export default Gasto;

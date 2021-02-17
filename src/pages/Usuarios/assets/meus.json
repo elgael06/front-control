@@ -1,0 +1,4 @@
+[
+    {"route":"Usuarios/nuevo","title":"Nuevo Usuario"},
+    {"route":"Usuarios/lista","title":"Lista Usuarios"}
+]

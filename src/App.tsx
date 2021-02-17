@@ -1,6 +1,6 @@
 import { IonApp, IonRouterOutlet, IonSplitPane } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { Redirect, Route } from 'react-router-dom';
+import { Redirect, Route, Switch } from 'react-router';
 import Menu from './components/Menu/Menu';
 
 /* Core CSS required for Ionic components to work properly */
@@ -23,11 +23,11 @@ import '@ionic/react/css/display.css';
 import './theme/variables.css';
 /* paginas */
 import Home from './pages/home/Home';
-import Actividades from './pages/Actividades/Actividades';
-import Destinos from './pages/Destinos/Destinos';
-import Gastos from './pages/Gastos/Gastos';
-import Platillos from './pages/Platillos/Platillos';
-import Usuarios from './pages/Usuarios/Usuarios';
+import RoutesGastos from './pages/Gastos/routes';
+import RoutesUsuarios from './pages/Usuarios/routes';
+import RoutesDestinos from './pages/Destinos/routes';
+import RoutesActividades from './pages/Actividades/routes';
+import RoutesPlatillos from './pages/Platillos/routes';
 
 const App: React.FC = () => {
   return (
@@ -36,20 +36,23 @@ const App: React.FC = () => {
         <IonSplitPane contentId="main">
           <Menu />
           <IonRouterOutlet id="main">
-            <Route path="/" exact={true}>
-              <Redirect to="/page/Inicio" />
-            </Route>
-            <Route path="/page" exact={true}>
-              <Redirect to="/page/Inicio" />
-            </Route>
+            <Switch>
 
-            <Route path="/page/Inicio" exact={true} component={Home} />
-            <Route path="/page/Actividades" exact={true} component={Actividades} />
-            <Route path="/page/Destinos" exact={true} component={Destinos} />
-            <Route path="/page/Gastos" exact={true} component={Gastos} />
-            <Route path="/page/Platillos" exact={true} component={Platillos} />
-            <Route path="/page/Usuarios" exact={true} component={Usuarios} />
-            
+              <Route path="/" exact={true}>
+                <Redirect to="/page/Inicio" />
+              </Route>
+              <Route path="/page" exact={true}>
+                <Redirect to="/page/Inicio" />
+              </Route>
+              <Route path="/page/Inicio" exact={true} component={Home} />
+              <Route path="/page/Platillos" component={RoutesPlatillos} />     
+              
+              <Route path="/page/Actividades" component={RoutesActividades} />
+              <Route path="/page/Destinos" component={RoutesDestinos} />
+              <Route path="/page/Gastos" component={RoutesGastos} />  
+              <Route path='/page/Usuarios' component={RoutesUsuarios} />
+
+            </Switch>
           </IonRouterOutlet>
         </IonSplitPane>
       </IonReactRouter>

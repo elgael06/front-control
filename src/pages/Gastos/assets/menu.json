@@ -1,0 +1,6 @@
+[
+    {"route":"Gastos/nuevo","title":"Nuevo Gasto"},
+    {"route":"Gastos/lista","title":"Mis Gatos"},
+    {"route":"Gastos/lista/filtro","title":"Gasto por usuario"},
+    {"route":"Gastos/Tipos","title":"Tipos de Gastos"}
+]
