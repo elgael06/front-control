@@ -3,11 +3,11 @@
   "name": "LaMar Sistema de control interno.",
   "icons": [
     {
-      "src": "assets/icon/start.png",
-      "sizes": "64x64 32x32 24x24 16x16"
+      "src": "assets/icon/start_3_ico.png",
+      "sizes": "64x64"
     },
     {
-      "src": "assets/icon/start_ico.png",
+      "src": "assets/icon/start_3_ico.png",
       "type": "image/png",
       "sizes": "512x512",
       "purpose": "maskable"
