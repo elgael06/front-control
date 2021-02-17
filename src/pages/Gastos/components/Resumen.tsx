@@ -9,6 +9,10 @@ const Resumen: React.FC = () => {
     const { lista = [], tipo = '',descripcion='',costo=0,imgComp }: stateGasto = useSelector((state: any) => state.formGasto);
     // const dispatch = useDispatch();
 
+    const textGasto = () => { 
+        const res = lista.find((value, index, array) => value.id == tipo);
+        return res ? res!.text : '';
+    }
     return <>
         <IonList className='lista'>
         
@@ -16,7 +20,7 @@ const Resumen: React.FC = () => {
             <IonLabel className="ion-text-wrap">
                 <IonText>Tipo Gasto:</IonText>
                 <IonText color="primary">
-                    <p>{ lista.find((value, index, array) => value.id==tipo)!.text}</p>
+                    <p>{ textGasto() }</p>
                 </IonText>
             </IonLabel>
         </IonItem>
