@@ -23,7 +23,7 @@ const Comprobante: React.FC = () => {
     }
 
     return <div style={{display:'flex',justifyContent:'center'}}>
-        <IonCard onClick={takePicture} style={{width:300}}>
+        <IonCard onClick={takePicture} style={{width:260}}>
             <IonImg src={imgComp || imageFotoBase} /> 
             
             <IonCardSubtitle style={{textAlign:'center'}}>

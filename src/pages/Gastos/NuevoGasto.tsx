@@ -26,6 +26,24 @@ const NuevoGasto: React.FC = () => {
         onSelected(event.detail.value);
     }
 
+    const onNext = () => { 
+        let nextPage = '';
+
+        switch (selected) {
+            case opciones[0]:
+                onSelected(opciones[1]);
+                break;
+            case opciones[1]:
+                onSelected(opciones[2]);
+                break;
+            case opciones[2]:
+                onSelected(opciones[3]);
+                break;
+            default:
+                break;
+        }
+    }
+
     const taps = (name:string,index:number) => <IonSegmentButton key={name} value={name} title={name}>
             <IonLabel>{index+1}</IonLabel>
     </IonSegmentButton>;
@@ -47,6 +65,7 @@ const NuevoGasto: React.FC = () => {
         <br />
         <PasoSeleccion />
         <br />
+        {selected != 'Resumen' && <IonButton expand='full' color='tertiary' onClick={onNext} >Siguiente</IonButton>}
     </>
 }
 
