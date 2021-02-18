@@ -1,5 +1,5 @@
 import { Camera, CameraResultType } from "@capacitor/core";
-import { IonBadge, IonButton, IonCard, IonCardSubtitle, IonCardTitle, IonContent, IonImg, IonToolbar } from "@ionic/react"
+import { IonBadge, IonCard, IonCardSubtitle, IonImg } from "@ionic/react"
 import { useDispatch, useSelector } from "react-redux";
 import { selectImage } from '../../../redux/actions/formGasto';
 import imageFotoBase from '../assets/img/foto.png';

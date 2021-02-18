@@ -1,4 +1,4 @@
-import { IonButton, IonImg, IonLabel,IonSegment, IonSegmentButton } from "@ionic/react";
+import { IonButton, IonLabel,IonSegment, IonSegmentButton } from "@ionic/react";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { addLista } from "../../redux/actions/formGasto";
@@ -6,11 +6,9 @@ import Descripcion from "./components/Descripcion";
 import Tipo from "./components/Tipos";
 import lista from './assets/listaGastos.json';
 import Title from "../../components/Title";
-import { Plugins, CameraResultType } from '@capacitor/core';
 import Comprobante from "./components/Comprobante";
 import Resumen from "./components/Resumen";
 
-const { Camera } = Plugins;
 
 const opciones:string[] = ['Tipo','Descripcion','Comprobante','Resumen'];
 
@@ -27,8 +25,6 @@ const NuevoGasto: React.FC = () => {
     }
 
     const onNext = () => { 
-        let nextPage = '';
-
         switch (selected) {
             case opciones[0]:
                 onSelected(opciones[1]);

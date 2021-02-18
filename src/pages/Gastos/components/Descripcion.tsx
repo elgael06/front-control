@@ -1,4 +1,4 @@
-import { IonCard, IonCardHeader, IonCardTitle, IonIcon, IonInput, IonItem, IonLabel, IonList, IonTextarea } from "@ionic/react";
+import { IonCard, IonCardTitle, IonIcon, IonInput, IonItem, IonLabel, IonList, IonTextarea } from "@ionic/react";
 import { reader, wallet } from 'ionicons/icons';
 import { useDispatch, useSelector } from "react-redux";
 import { selectCosto, selectDesc } from "../../../redux/actions/formGasto";

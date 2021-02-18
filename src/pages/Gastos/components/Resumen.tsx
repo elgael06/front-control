@@ -1,17 +1,36 @@
-import { IonButton, IonCard, IonImg, IonItem, IonLabel, IonList, IonText } from "@ionic/react";
+import { IonButton, IonCard, IonImg, IonItem, IonLabel, IonList, IonText, IonToast } from "@ionic/react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { stateGasto } from "../../../redux/reducers/gasto";
+import { useHistory } from "react-router-dom";
+
+import { selectGasto,selectDesc,selectCosto,selectImage } from '../../../redux/actions/formGasto';
 
 import imageFotoBase from '../assets/img/foto.png';
 
 
 const Resumen: React.FC = () => { 
     const { lista = [], tipo = '',descripcion='',costo=0,imgComp }: stateGasto = useSelector((state: any) => state.formGasto);
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
+  const history = useHistory();
+    const [showToast,setShow] = useState(false);
 
     const textGasto = () => { 
         const res = lista.find((value, index, array) => value.id == tipo);
         return res ? res!.text : '';
+    }
+
+    const handleSave = () => { 
+        setShow(true);
+    }
+    const onDidDismiss = () => { 
+        dispatch(selectGasto(''));
+        dispatch(selectDesc(''));
+        dispatch(selectCosto('0'));
+        dispatch(selectImage(''));
+
+        setShow(false);
+        setTimeout(() => history.goBack(),1000);
     }
     return <>
         <IonList className='lista'>
@@ -50,8 +69,15 @@ const Resumen: React.FC = () => {
         </div>
         
         </IonList>
-        <br/>
-        <IonButton expand='block' color='success' > GUARDAR</IonButton>
+        <br />
+        <IonButton expand='block' color='success' onClick={handleSave} > GUARDAR</IonButton>
+        <IonToast
+            isOpen={showToast}
+            onDidDismiss={onDidDismiss}
+            position='bottom'
+            message='Se ha guardado el gasto'
+            duration={1000}
+        />
         </>
 }
 
