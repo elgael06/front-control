@@ -14,7 +14,7 @@ const Descripcion = () => {
         dispatch(selectCosto(val));
     }
     return (
-        <IonList>
+        <IonList className='lista'>
             <br />
             <IonCard>
             <IonItem>

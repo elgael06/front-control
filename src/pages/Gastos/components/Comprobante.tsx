@@ -22,7 +22,7 @@ const Comprobante: React.FC = () => {
         dispatch(selectImage(imageUrl));
     }
 
-    return <div style={{display:'flex',justifyContent:'center'}}>
+    return <div style={{display:'flex',justifyContent:'center'}} className='lista'>
         <IonCard onClick={takePicture} style={{width:260}}>
             <IonImg src={imgComp || imageFotoBase} /> 
             
