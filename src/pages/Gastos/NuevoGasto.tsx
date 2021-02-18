@@ -65,7 +65,7 @@ const NuevoGasto: React.FC = () => {
         <br />
         <PasoSeleccion />
         <br />
-        {selected != 'Resumen' && <IonButton expand='full' color='tertiary' onClick={onNext} >Siguiente</IonButton>}
+        {selected != 'Resumen' && <IonButton expand='full' onClick={onNext} >Siguiente</IonButton>}
     </>
 }
 
