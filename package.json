@@ -72,5 +72,5 @@
     "@types/react-redux": "^7.1.16"
   },
   "description": "An Ionic project",
-  "proxy": "https://base-back-end-api.herokuapp.com" 
+  "proxy": "http://localhost:8000"
 }
