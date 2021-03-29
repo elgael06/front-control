@@ -28,15 +28,19 @@ import RoutesUsuarios from './pages/Usuarios/routes';
 import RoutesDestinos from './pages/Destinos/routes';
 import RoutesActividades from './pages/Actividades/routes';
 import RoutesPlatillos from './pages/Platillos/routes';
+import { useSelector } from 'react-redux';
+import Login from './pages/Login/Login';
 
 const App: React.FC = () => {
-  return (
+
+  const { status=false } = useSelector((state: any) => state.sesion);
+  return status ? (
     <IonApp>
       <IonReactRouter>
         <IonSplitPane contentId="main">
           <Menu />
           <IonRouterOutlet id="main">
-            <Switch>
+            <Switch >
 
               <Route path="/" exact={true}>
                 <Redirect to="/page/Inicio" />
@@ -57,7 +61,14 @@ const App: React.FC = () => {
         </IonSplitPane>
       </IonReactRouter>
     </IonApp>
-  );
+  ): <IonApp>
+    <IonReactRouter>
+      <Route path="/page/login" exact={true} component={Login} />
+      <Route path="/" >
+        <Redirect to="/page/login" />
+      </Route>
+    </IonReactRouter>
+  </IonApp>;
 };
 
 export default App;
