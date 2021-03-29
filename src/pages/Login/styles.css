@@ -1,0 +1,13 @@
+#container_div {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  align-items: center;
+}
+
+#card_login {
+  width: 90%;
+  max-width: 500px;
+  height: 90%;
+  background: #00000010;
+}

@@ -14,6 +14,7 @@ import { useLocation } from 'react-router-dom';
 import { peopleCircle, peopleOutline, cardSharp, cardOutline, accessibility, accessibilityOutline,fastFood,navigateCircle, navigateOutline,homeSharp,homeOutline } from 'ionicons/icons';
 import './Menu.css';
 import data_app from '../../assets/data_app.json';
+import { useSelector } from 'react-redux';
 
 interface AppPage {
   url: string;
@@ -62,6 +63,7 @@ const appPages: AppPage[] = [
 ];
 
 const Menu: React.FC = () => {
+  const { name='',email='' } = useSelector((state: any) => state.sesion);
   const location = useLocation();
 
   return (
@@ -69,7 +71,9 @@ const Menu: React.FC = () => {
       <IonContent>
         <IonList id="inbox-list">
           <IonListHeader>{ data_app.name}</IonListHeader>
-          <IonNote>{ data_app.creator}</IonNote>
+          <IonNote>{name}</IonNote>
+          <hr />
+          <IonNote>{ email }</IonNote>
           {appPages.map((appPage, index) => {
             return (
               <IonMenuToggle key={index} autoHide={false}>
