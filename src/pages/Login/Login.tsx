@@ -1,6 +1,5 @@
-import { IonButton, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonContent, IonHeader, IonImg, IonInput, IonItem, IonPage, IonRow, IonTitle, IonToolbar } from "@ionic/react"
-
-import { FormControl, Form } from 'react-bootstrap';
+import { IonButton, IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonContent, IonImg, IonPage } from "@ionic/react"
+import { FormControl, Form, Alert } from 'react-bootstrap';
 import './styles.css';
 
 import imagen from './assets/mar_1.jpg';
@@ -11,12 +10,18 @@ import { useDispatch } from "react-redux";
 type formType = {
     email: string,
     password: string,
-    statusPass: boolean
+    statusPass: boolean,
+    statusRes:boolean,
+    statusAlert: boolean,
+    messageAlert:string
 }
 const initialStateForm: formType = {
     email: '',
     password: '',
-    statusPass:false
+    statusPass: false,
+    statusRes:false,
+    statusAlert: false,
+    messageAlert:'este es un mensaje'
 }
 
 const Login = () => {
@@ -27,7 +32,22 @@ const Login = () => {
         e.preventDefault();
         console.log(state);
         const data = await login(state.email, state.password);
-        dispatch({ type: 'ADD_SESION', value: {...data.sesion,status:data.status}})
+        // alert(data.message)
+        setState({
+            ...state,
+            statusRes:data.status,
+            statusAlert: true,
+            messageAlert:data.message
+        })
+        setTimeout(() => {
+            setState({
+                ...state,
+                statusAlert: false,
+                messageAlert: ''
+            });
+            data.status && dispatch({ type: 'ADD_SESION', value: {...data.sesion,status:data.status}})
+        }, 2000)
+        
     }
 
     return <IonPage>
@@ -78,6 +98,9 @@ const Login = () => {
                     </IonCardContent>
                 </IonCard>
             </div>
+                {state.statusAlert && <Alert style={{position:'fixed',top:10,left:20}} variant={state.statusRes ? 'info' :'danger'}>
+                    { state.messageAlert}
+                </Alert>}
         </IonContent>
     </IonPage>
 }
