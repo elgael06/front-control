@@ -1,4 +1,4 @@
-import { IonButton, IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonContent, IonImg, IonPage } from "@ionic/react"
+import { IonButton, IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonContent, IonImg, IonLoading, IonPage, IonProgressBar } from "@ionic/react"
 import { FormControl, Form, Alert } from 'react-bootstrap';
 import './styles.css';
 
@@ -13,7 +13,8 @@ type formType = {
     statusPass: boolean,
     statusRes:boolean,
     statusAlert: boolean,
-    messageAlert:string
+    messageAlert: string,
+    loading:boolean
 }
 const initialStateForm: formType = {
     email: '',
@@ -21,7 +22,8 @@ const initialStateForm: formType = {
     statusPass: false,
     statusRes:false,
     statusAlert: false,
-    messageAlert:'este es un mensaje'
+    messageAlert: 'este es un mensaje',
+    loading:false
 }
 
 const Login = () => {
@@ -31,21 +33,28 @@ const Login = () => {
     const submitLogin = async (e:any) => {
         e.preventDefault();
         console.log(state);
+        setState({
+            ...state,
+            loading: true,
+        });
         const data = await login(state.email, state.password);
         // alert(data.message)
         setState({
             ...state,
             statusRes:data.status,
             statusAlert: true,
-            messageAlert:data.message
+            messageAlert: data.message,
         })
+        if (data.status) {                
+            dispatch({ type: 'ADD_SESION', value: { ...data.sesion, status: data.status } })
+        }
         setTimeout(() => {
             setState({
                 ...state,
                 statusAlert: false,
-                messageAlert: ''
+                messageAlert: '',
+                loading:false
             });
-            data.status && dispatch({ type: 'ADD_SESION', value: {...data.sesion,status:data.status}})
         }, 2000)
         
     }
@@ -92,7 +101,9 @@ const Login = () => {
                             </Form.Check>
 
                             <br/>
-                            <IonButton fill='solid' type='submit' expand='block' >Entrar</IonButton>
+                            <IonButton disabled={state.loading} fill='solid' type='submit' expand='block' >
+                                { state.loading ? <IonProgressBar value={0.25} buffer={0.5} type="indeterminate" /> :'Entrar'}
+                            </IonButton>
 
                         </Form>
                     </IonCardContent>
@@ -100,7 +111,16 @@ const Login = () => {
             </div>
                 {state.statusAlert && <Alert style={{position:'fixed',top:10,left:20}} variant={state.statusRes ? 'info' :'danger'}>
                     { state.messageAlert}
-                </Alert>}
+            </Alert>}
+            <IonLoading
+                cssClass='my-custom-class'
+                isOpen={state.loading}
+                onDidDismiss={() => setState({
+                    ...state,
+                    loading: false,
+                })}
+                message={'cargando...'}
+            />
         </IonContent>
     </IonPage>
 }
