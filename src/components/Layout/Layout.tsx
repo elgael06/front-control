@@ -1,28 +1,15 @@
-import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonButton, IonButtons, IonContent, IonHeader, IonIcon, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { power } from 'ionicons/icons';
+import ButtonClose from './ButtonClose';
+import HeaderLayout from './HeaderLayout';
 
 import './Layout.css'
 
 
-const Layout: React.FC<{children:any,name:string}> = ({ 
-  children,
-  name
-})  => {
+const Layout: React.FC<{children:any,name:string}> = ({ children,name})  => {
   return (<IonPage>
-  	<IonHeader>
-    	<IonToolbar>
-      	<IonButtons slot="start">
-        	<IonMenuButton />
-        </IonButtons>
-        <IonTitle>{name}</IonTitle>
-        </IonToolbar>
-    </IonHeader>
-
+    <HeaderLayout name={name} />
     <IonContent fullscreen>
-      <IonHeader collapse="condense">
-        <IonToolbar>
-          <IonTitle size="large">{name}</IonTitle>
-        </IonToolbar>
-      </IonHeader>
       <div className='container-app'>
 				{ children }
       </div>
