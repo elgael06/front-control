@@ -1,0 +1,20 @@
+{
+  "short_name": "LaMar",
+  "name": "LaMar Sistema de control interno.",
+  "icons": [
+    {
+      "src": "assets/icon/start_3_ico.png",
+      "sizes": "64x64"
+    },
+    {
+      "src": "assets/icon/start_3_ico.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "maskable"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#53565A",
+  "background_color": "#53565A"
+}
