@@ -11,7 +11,7 @@ import {
 } from '@ionic/react';
 
 import { useLocation } from 'react-router-dom';
-import { peopleCircle, peopleOutline, cardSharp, cardOutline, accessibility, accessibilityOutline,fastFood,navigateCircle, navigateOutline,homeSharp,homeOutline } from 'ionicons/icons';
+import { peopleCircle, peopleOutline, cardSharp, cardOutline, accessibility, accessibilityOutline,fastFood,navigateCircle, navigateOutline,homeSharp,homeOutline, caretUpCircleOutline, caretUpCircle } from 'ionicons/icons';
 import './Menu.css';
 import data_app from '../../assets/data_app.json';
 import { useSelector } from 'react-redux';
@@ -26,37 +26,43 @@ interface AppPage {
 const appPages: AppPage[] = [
   {
     title: 'Inicio',
-    url: '/page/Inicio',
+    url: '/control/Inicio',
     iosIcon: homeOutline,
     mdIcon: homeSharp
   },
   {
     title: 'Destinos',
-    url: '/page/Destinos',
+    url: '/control/Destinos',
     iosIcon: navigateOutline,
     mdIcon: navigateCircle
   },
   {
     title: 'Platillos',
-    url: '/page/Platillos',
+    url: '/control/Platillos',
     iosIcon: fastFood,
     mdIcon: fastFood
   },
   {
     title: 'Actividades',
-    url: '/page/Actividades',
+    url: '/control/Actividades',
     iosIcon: accessibility,
     mdIcon: accessibilityOutline
   },
   {
     title: 'Gastos',
-    url: '/page/Gastos',
+    url: '/control/Gastos',
     iosIcon: cardOutline,
     mdIcon: cardSharp
   },
   {
+    title: 'Productos',
+    url: '/control/Productos',
+    iosIcon: caretUpCircleOutline,
+    mdIcon: caretUpCircle
+  },
+  {
     title: 'Usuarios',
-    url: '/page/Usuarios',
+    url: '/control/Usuarios',
     iosIcon: peopleOutline ,
     mdIcon: peopleCircle
   },
@@ -71,9 +77,9 @@ const Menu: React.FC = () => {
       <IonContent>
         <IonList id="inbox-list">
           <IonListHeader>{ data_app.name}</IonListHeader>
-          <IonNote>{name}</IonNote>
+          <div style={{height:20}}><IonNote><b>Usuario:</b> {name}</IonNote></div>
+          <IonNote><small><b>Email:</b> { email }</small></IonNote>
           <hr />
-          <IonNote>{ email }</IonNote>
           {appPages.map((appPage, index) => {
             return (
               <IonMenuToggle key={index} autoHide={false}>

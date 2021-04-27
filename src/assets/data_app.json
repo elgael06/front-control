@@ -1,7 +1,7 @@
 {
-    "name":"SDCI LaMar",
+    "name":"SDCI",
     "creator":"mya-app.tech",
-    "title":"Sistema de control interno LaMar",
+    "title":"Sistema de control interno",
     "description":"Este es el sistema de control interno para manejo de persona.En etste sistema se veran diferentes opciones ",
     "data_access":[
         {"name":"Destinos","desc":"Programa los destinos actializa datos y verifica tus destinos asignados."},

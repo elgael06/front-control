@@ -7,7 +7,7 @@ const RoutesActividades: React.FC = () => {
 
     return <Layout name='Actividades'>
             <Switch>
-                <Route path='/page/Actividades/' exact={true} component={Actividades} />
+                <Route path='/control/Actividades/' exact={true} component={Actividades} />
             </Switch>
         </Layout>
 }
