@@ -1,0 +1,5 @@
+[
+    {"route":"Productos/nuevo","title":"NuevoProducto"},
+    {"route":"Productos/lista","title":"Lista Productos"},
+    {"route":"Productos/buscar","title":"Buscar Productos"}
+]

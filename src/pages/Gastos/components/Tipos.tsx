@@ -8,7 +8,7 @@ const Tipo = () => {
     const { lista = [], tipo = '' }: { lista: gastoLista[], tipo: string } = useSelector((state: any) => state.formGasto);
     const dispatch = useDispatch();
     const selectItem = (item: string) => dispatch(selectGasto(item));
-    const comprobar = (val: string) => val == tipo;
+    const comprobar = (val: string) => val === tipo;
  
     return (<IonList className='lista'>
         {

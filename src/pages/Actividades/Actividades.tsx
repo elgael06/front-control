@@ -1,5 +1,4 @@
 import { IonList } from "@ionic/react";
-import Layout from "../../components/Layout/Layout"
 import SubMenu from "../../components/SubMenus/SubMenus";
 import Title from "../../components/Title";
 

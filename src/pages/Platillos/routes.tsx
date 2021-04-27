@@ -1,14 +1,18 @@
-import { Route, Switch } from "react-router"
-import Layout from "../../components/Layout/Layout"
-import Platillos from "./Platillos";
+import { lazy, Suspense } from 'react';
+import { Route, Switch } from "react-router";
+import Layout from "../../components/Layout/Layout";
+
+const Platillos = lazy(()=>import("./Platillos"));
 
 
 const RoutesPlatillos:React.FC = () => { 
 
     return <Layout name='Platillos' >
-        <Switch >
-            <Route path='/page/Platillos' exact={true} component={Platillos} />
-        </Switch>
+        <Suspense fallback={<div>loading...</div>}>
+            <Switch >
+                <Route path='/control/Platillos' exact={true} component={Platillos} />
+            </Switch>
+        </Suspense>
     </Layout>
 }
 

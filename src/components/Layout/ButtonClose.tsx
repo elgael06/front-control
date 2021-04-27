@@ -2,6 +2,7 @@ import React from 'react';
 import { IonButton, IonIcon } from "@ionic/react";
 import { power } from 'ionicons/icons';
 import { useDispatch } from 'react-redux';
+import { cerrarSecion } from '../../redux/actions/sesion.actions';
 
 
 const ButtonClose: React.FC = () => {
@@ -13,7 +14,7 @@ const ButtonClose: React.FC = () => {
         shape="round"
         size="small"
         slot='end'
-        onClick={() => dispatch({type:'REMOVE_SESION'})}
+        onClick={() => dispatch(cerrarSecion())}
     >
         <IonIcon icon={power} />
     </IonButton>);

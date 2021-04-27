@@ -1,7 +1,8 @@
 {
-  "name": "front-lamar",
+  "name": "Sistema de control interno.",
   "integrations": {
-    "capacitor": {}
+    "capacitor": {},
+    "cordova":{}
   },
   "type": "react",
   "id": "286c0e07"
