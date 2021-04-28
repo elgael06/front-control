@@ -29,6 +29,13 @@ export const chekSesion = ({ email='',password=''}) => {
 export const cerrarSecion = () => {
     
     return (dispatch: Function) => {
-        dispatch({ type: types.REMOVE_SESION });
+        dispatch(loaddingOn());  
+        setTimeout(()=>{
+            dispatch(loaddingOff());  
+            dispatch({ type: types.REMOVE_SESION }); 
+            setTimeout(()=>{
+                window.location.href ='/';
+            },500)
+        },1000);  
     }
 }

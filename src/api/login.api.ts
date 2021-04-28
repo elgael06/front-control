@@ -1,4 +1,5 @@
 import axios from 'axios';
+import setToken from '../functions/setToken';
 
 export const login = async (username = '', password = '') => {
     const token = Buffer.from(`${username}:${password}`, 'utf8').toString('base64');
@@ -9,11 +10,8 @@ export const login = async (username = '', password = '') => {
                 'Authorization': `Basic ${token}`
             },
         });
-        if (status === 200) {            
-            axios.defaults.headers.post['x-access-tokens'] = data.token;
-            axios.defaults.headers.get['x-access-tokens'] = data.token;
-            axios.defaults.headers.put['x-access-tokens'] = data.token;
-            axios.defaults.headers.delete['x-access-tokens'] = data.token;
+        if (status === 200) {  
+            setToken(data.token);
         }
         return {...data,res:status};
     } catch(error){

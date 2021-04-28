@@ -1,5 +1,6 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
+import setToken from '../functions/setToken';
 import { efectsInitialState, effects } from './reducers/effects.reducer';
 import { formGasto, initGasto } from './reducers/gasto';
 import { sesion, sesionInitialState } from './reducers/sesion.reducer';
@@ -25,8 +26,12 @@ const initialState = {
     userInfo:userInfoInit
 }
 
+const persistedState = localStorage.getItem('reduxState') 
+                       ? JSON.parse(localStorage.getItem('reduxState') || JSON.stringify( initialState))
+                       : initialState;
+                  
 export default createStore(
     reducers,
-    initialState,
+    persistedState,
     applyMiddleware(thunk)
 );
