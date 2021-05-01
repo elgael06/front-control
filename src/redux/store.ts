@@ -1,6 +1,5 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
-import setToken from '../functions/setToken';
 import { efectsInitialState, effects } from './reducers/effects.reducer';
 import { formGasto, initGasto } from './reducers/gasto';
 import { sesion, sesionInitialState } from './reducers/sesion.reducer';

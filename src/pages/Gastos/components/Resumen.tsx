@@ -16,7 +16,7 @@ const Resumen: React.FC = () => {
     const [showToast,setShow] = useState(false);
 
     const textGasto = () => { 
-        const res = lista.find((value, index, array) => value.id == tipo);
+        const res = lista.find((value, index, array) => value.id === tipo);
         return res ? res!.text : '';
     }
 

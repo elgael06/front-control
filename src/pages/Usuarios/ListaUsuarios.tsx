@@ -12,9 +12,11 @@ const ListaUsuarios = () => {
     const dispatch = useDispatch();
     const history = useHistory();
 
-    useEffect(() => {
+    const _init = ()=>{
         dispatch(optenerUsuarios());
-    }, []);
+    }
+    // eslint-disable-next-line
+    useEffect(_init, []);
     
     const handleNew = () => history.push('/page/Usuarios/nuevo');
     

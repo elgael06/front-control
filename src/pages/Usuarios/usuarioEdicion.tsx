@@ -13,7 +13,6 @@ const ancho_col = '6';
 const NuevoUsuario: React.FC = () => {
     const { idUser } = useParams<{ idUser: string }>();
     const history = useHistory();
-    // const { token='NA' } = useSelector((state: any) => state.sesion);
     const dispatch = useDispatch();
     const {
         name= '',
@@ -27,6 +26,7 @@ const NuevoUsuario: React.FC = () => {
         idUser && dispatch(usuarioId(idUser));
         
     }
+    // eslint-disable-next-line
     useEffect(_initial, [idUser]);
 
     const handleSave = (e: any) => {

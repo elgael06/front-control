@@ -16,9 +16,11 @@ const NuevoGasto: React.FC = () => {
     const [selected, onSelected] = useState('Tipo');
     const dispatch = useDispatch();
 
-    useEffect(() => { 
+    const _init= ()=>{
         dispatch(addLista(lista));
-    },[]);
+    }
+    // eslint-disable-next-line
+    useEffect(_init,[]);
 
     const onchange = (event:any) => { 
         onSelected(event.detail.value);
@@ -45,10 +47,10 @@ const NuevoGasto: React.FC = () => {
     </IonSegmentButton>;
     
     const PasoSeleccion = () => { 
-        if (selected == 'Tipo') return <Tipo />;
-        else if (selected == 'Descripcion') return <Descripcion />;
-        else if (selected == 'Comprobante') return <Comprobante />;
-        else if (selected == 'Resumen') return <Resumen />;
+        if (selected === 'Tipo') return <Tipo />;
+        else if (selected === 'Descripcion') return <Descripcion />;
+        else if (selected === 'Comprobante') return <Comprobante />;
+        else if (selected === 'Resumen') return <Resumen />;
         else  return null;
     }
 
@@ -61,7 +63,7 @@ const NuevoGasto: React.FC = () => {
         <br />
         <PasoSeleccion />
         <br />
-        {selected != 'Resumen' && <IonButton expand='full' onClick={onNext} >Siguiente</IonButton>}
+        {selected !== 'Resumen' && <IonButton expand='full' onClick={onNext} >Siguiente</IonButton>}
     </>
 }
 

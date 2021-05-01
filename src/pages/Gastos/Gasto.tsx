@@ -1,6 +1,4 @@
-import { IonIcon, IonItem, IonLabel, IonList } from "@ionic/react";
-import { menu, send } from "ionicons/icons";
-import Layout from "../../components/Layout/Layout";
+import { IonList } from "@ionic/react";
 import SubMenu from "../../components/SubMenus/SubMenus";
 import Title from "../../components/Title";
 
