@@ -1,5 +1,4 @@
-import { IonContent, IonHeader, IonIcon, IonPage } from "@ionic/react";
-import { personCircleOutline } from "ionicons/icons";
+import { IonContent, IonHeader, IonPage } from "@ionic/react";
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 
@@ -14,7 +13,7 @@ const LayoutLogin:React.FC = ({ children }) => {
             <meta property="og:image" content="static/landing/img/img.png" />
             <title>inicio de sesion de usiarios</title>
         </IonHeader>
-        
+
         <IonContent >
             <div id='container_div'>
                 <Container id='card_login'>

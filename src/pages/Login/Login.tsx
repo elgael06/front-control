@@ -2,13 +2,13 @@ import { IonButton } from "@ionic/react"
 import {  Form } from 'react-bootstrap';
 import './styles.css';
 
-import React, { useState } from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { chekSesion } from "../../redux/actions/sesion.actions";
 import LayoutLogin from "../../components/Layout/LayoutLogin";
 import FormLogin from "./components/FormLogin";
 import ModalConfirm from "./components/ModalConfirm";
-import { business, eye, eyeOff, lockClosed, lockOpen, mail } from "ionicons/icons";
+import { business, eye, eyeOff, mail } from "ionicons/icons";
 
 type formType = {
     email: string,
