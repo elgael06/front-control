@@ -93,18 +93,20 @@ export const changePuesto = (value: string) => {
 export const guardarUsuario = (user:userInitial,callBack:Function) => {
     return async (dispatch: Function) => {
         dispatch(loaddingOn());
-        const data = await insertUser(user);
-
-        dispatch(menssageOn({
-                    status: true,
-                    text: data.message,
-                    title: '',
-                    type:  data.status ? 'info': 'danger'
-                }));
-        if (data.status) {
-            dispatch({ type: types.DEFAULT_USER_ID });
-            callBack();
-        }
+        try{
+            const data = await insertUser(user);
+    
+            dispatch(menssageOn({
+                        status: true,
+                        text: data.message,
+                        title: '',
+                        type:  data.status ? 'info': 'danger'
+                    }));
+            if (data.status) {
+                dispatch({ type: types.DEFAULT_USER_ID });
+                callBack();
+            }
+        }catch{}
         dispatch(loaddingOff());
         setTimeout(() => {        
             dispatch(menssageOff());
@@ -115,18 +117,20 @@ export const guardarUsuario = (user:userInitial,callBack:Function) => {
 export const actualizarUsuario = (id:string,user:userInitial,callBack:Function) => {
     return async (dispatch: Function) => {
         dispatch(loaddingOn());
-        const data = await updatetUser(id,user);
-
-        dispatch(menssageOn({
-                    status: true,
-                    text: data.message,
-                    title: '',
-                    type:  data.status ? 'info': 'danger'
-                }));
-        if (data.status) {
-            dispatch({ type: types.DEFAULT_USER_ID });
-            callBack();
-        }
+        try{
+            const data = await updatetUser(id,user);
+            
+            dispatch(menssageOn({
+                status: true,
+                text: data.message,
+                title: '',
+                type:  data.status ? 'info': 'danger'
+            }));
+            if (data.status) {
+                dispatch({ type: types.DEFAULT_USER_ID });
+                callBack();
+            }
+        }catch{}
         dispatch(loaddingOff());
         setTimeout(() => {        
             dispatch(menssageOff());

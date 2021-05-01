@@ -23,7 +23,7 @@ export const getUsersEmail = async (email='') => {
 }
 
 export const insertUser = async (user:userInitial):Promise<responseDefault> => {
-    const { data } = await axios.post('/api/v1/user', user);
+    const { data } = await axios.post('/api/v1/user/', user);
     return data;
 }
 
