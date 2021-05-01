@@ -1,6 +1,5 @@
 import { FC } from "react";
-import { IonTitle, IonToolbar } from "@ionic/react"
-import { Components } from "ionicons";
+import { IonTitle, IonToolbar } from "@ionic/react";
 
 
 const Title:FC<{name:string|any}>=({name})=> <IonToolbar>

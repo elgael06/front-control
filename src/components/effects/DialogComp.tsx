@@ -1,4 +1,4 @@
-import { Alert, Toast } from "react-bootstrap";
+import { Toast } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { efectaInitial } from "../../redux/types/effects.type";
 
