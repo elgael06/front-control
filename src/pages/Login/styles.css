@@ -1,13 +1,24 @@
+
 #container_div {
   display: flex;
   justify-content: center;
   height: 100%;
   align-items: center;
+  background-color:#000;
+  overflow: auto;
 }
 
 #card_login {
   width: 90%;
-  max-width: 500px;
-  height: 90%;
-  background: #00000010;
+  max-width: 400px;
+  min-height: 85%;
+  margin:10px;
+  background-color: #fdfcfc;
+  border-radius:10px 30px 0 80px ;
+}
+
+.corporing{
+  text-align: center;
+  color: #00000070;
+  padding-top: 40px
 }

@@ -8,6 +8,7 @@ import { chekSesion } from "../../redux/actions/sesion.actions";
 import LayoutLogin from "../../components/Layout/LayoutLogin";
 import FormLogin from "./components/FormLogin";
 import ModalConfirm from "./components/ModalConfirm";
+import { business, eye, eyeOff, lockClosed, lockOpen, mail } from "ionicons/icons";
 
 type formType = {
     email: string,
@@ -30,7 +31,7 @@ const Login = () => {
     }
 
     return <LayoutLogin>
-        <Form onSubmit={submitLogin} name='login'>
+        <Form onSubmit={submitLogin} name='login' style={{overflow:'auto'}}>
             <FormLogin
                 title='Correo'
                 required={true}
@@ -39,6 +40,7 @@ const Login = () => {
                 name='user'
                 placeholder='usuario@dominio.abc'
                 value={state.email}
+                icon={mail}
                 onChange={(e:any) => setState({ ...state, email: e.target.value })}
             />
 
@@ -50,7 +52,17 @@ const Login = () => {
                 placeholder='contraseña'
                 minLength={6}
                 value={state.password}
+                icon={state.statusPass ? eye : eyeOff}
                 onChange={(e:any) => setState({ ...state, password: e.target.value })}
+            />
+
+            <FormLogin
+                title='Empresa'
+                disabled
+                name='empresa'
+                minLength={6}
+                value='MYA-APP.TECH'
+                icon={ business }
             />
 
             <Form.Check >

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { IonButton, IonIcon } from "@ionic/react";
 import { power } from 'ionicons/icons';
 import { useDispatch } from 'react-redux';
@@ -7,6 +7,8 @@ import { cerrarSecion } from '../../redux/actions/sesion.actions';
 
 const ButtonClose: React.FC = () => {
     const dispatch = useDispatch();
+
+    useEffect(()=>{} );
     
     return (<IonButton
         color="danger"
