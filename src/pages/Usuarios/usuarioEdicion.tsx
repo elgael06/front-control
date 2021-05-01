@@ -1,3 +1,5 @@
+import { IonIcon } from "@ionic/react";
+import { create, createOutline, person, personAdd, personAddOutline, personAddSharp } from "ionicons/icons";
 import { useEffect } from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
@@ -50,7 +52,11 @@ const NuevoUsuario: React.FC = () => {
     }
 
     return <Container>
-        <Title name={`${idUser ?'Editar': 'Crear'}:`} />
+       
+        <Title name={ <div  style={{justifyContent:'center',display:'flex',alignItems:'flex-end',paddingBottom:20}}>
+            <IonIcon icon={idUser ? createOutline : personAddOutline  } style={{fontSize:40,paddingRight:10}} /> 
+            <label> {idUser ?'Editar': 'Crear'}</label>
+            </div>}/>
 
         <Form onSubmit={handleSave}>
 

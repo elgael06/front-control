@@ -1,13 +1,13 @@
 {
-  "short_name": "LaMar",
-  "name": "LaMar Sistema de control interno.",
+  "short_name": "SDCI",
+  "name": "Sistema de control interno.",
   "icons": [
     {
-      "src": "assets/icon/start_3_ico.png",
+      "src": "assets/icon/start_3_ico_.png",
       "sizes": "64x64"
     },
     {
-      "src": "assets/icon/start_3_ico.png",
+      "src": "assets/icon/start_3_ico_.png",
       "type": "image/png",
       "sizes": "512x512",
       "purpose": "maskable"
