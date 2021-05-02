@@ -1,12 +1,12 @@
 import { IonButton, IonButtons, IonIcon } from "@ionic/react";
-import { create, key, lockClosed, trashSharp } from "ionicons/icons";
+import { create, key, trashSharp } from "ionicons/icons";
 import { useEffect } from "react";
-import { Button, Card, Col, Row, Table } from "react-bootstrap";
+import { Button, Card,Table } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
-import { Link } from "react-router-dom";
 import { optenerUsuarios } from "../../redux/actions/usuarios.actions";
 import { userInitial } from "../../redux/types/usuarios.type";
+import CamposFiltro from "./components/CamposFiltro";
 
 
 const ListaUsuarios = () => {
@@ -23,11 +23,12 @@ const ListaUsuarios = () => {
     const handleNew = () => history.push('nuevo');
     
     return (<>
+    <CamposFiltro />
     <Table bordered striped hover size="sm" responsive>
         <thead>
             <tr>
                 {['Nombre', 'Apeidos', 'Correo', 'Creado',
-                    <Button block size="sm" onClick={handleNew}> NUEVO </Button>
+                    <Button variant='link' block size="sm" onClick={handleNew}> NUEVO </Button>
                 ].map((e, i) =><th key={i}>{e}</th>)}
             </tr>
         </thead>
