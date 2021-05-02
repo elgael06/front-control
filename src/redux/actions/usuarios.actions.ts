@@ -118,7 +118,7 @@ export const actualizarUsuario = (id:string,user:userInitial,callBack:Function) 
     return async (dispatch: Function) => {
         dispatch(loaddingOn());
         try{
-            const data = await updatetUser(id,user);
+            const data = await updatetUser(id,user).catch();
             
             dispatch(menssageOn({
                 status: true,
