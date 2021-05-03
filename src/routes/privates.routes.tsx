@@ -19,7 +19,7 @@ const PrivateRoutes = () => {
       <IonRouterOutlet id="main" animated={true} mode='md' >
         <Switch >            
           <Route path="/" exact={true}>
-              <Redirect to="/page/Inicio" />
+              <Redirect to="/control/Inicio" />
           </Route>
           <Route path="/control/login" exact={true}>
               <Redirect to="/control/Inicio" />

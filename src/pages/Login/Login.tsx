@@ -31,7 +31,7 @@ const Login = () => {
     }
 
     return <LayoutLogin>
-        <Form onSubmit={submitLogin} name='login' style={{overflow:'auto'}}>
+        <form onSubmit={submitLogin} name='login' style={{overflow:'auto'}}>
             <FormLogin
                 title='Correo'
                 required={true}
@@ -64,14 +64,14 @@ const Login = () => {
                 value='MYA-APP.TECH'
                 icon={ business }
             />
-
+            <span onClick={() => setState({ ...state, statusPass: !state.statusPass })}>
             <Form.Check >
                 <Form.Check.Input
                     checked={state.statusPass}
-                    onChange={() => setState({ ...state, statusPass: !state.statusPass })}
-                />
+                    />
                 <Form.Check.Label>mostrar contraseña</Form.Check.Label>
             </Form.Check>
+            </span>
 
             <br/>
             <IonButton
@@ -82,7 +82,7 @@ const Login = () => {
                 Entrar
             </IonButton>
 
-        </Form>
+        </form>
         <ModalConfirm
             email={state.email}
             password={state.password}
