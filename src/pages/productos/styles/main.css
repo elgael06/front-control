@@ -1,0 +1,16 @@
+input.numeric{
+    text-align: right;
+}
+.content-barcode{
+    display: flex;
+    align-items: center;
+}
+button.btn-barcode{
+    height: 50px;
+    width: 100%;
+}
+
+.btn-save{
+    display:flex;
+    flex-direction: row-reverse;
+}
