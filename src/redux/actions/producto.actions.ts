@@ -1,4 +1,4 @@
-import { BARCODE_LIST_PRODUCTO } from "../types/producto.type";
+import { BARCODE_LIST_PRODUCTO, RESTORE_PRODUCTO } from "../types/producto.type";
 
 
 export const setValue = (type: string, value:string) => {
@@ -8,6 +8,11 @@ export const setValue = (type: string, value:string) => {
         value
     };
 };
+
+export const restoreProduct = ()=>{
+
+    return {type:RESTORE_PRODUCTO,value:''}
+}
 
 export const setListaBarcode = ( value:string)=> {
 

@@ -1,5 +1,5 @@
 import { IonIcon } from "@ionic/react";
-import { Button, Col, Container, Form, Row } from "react-bootstrap"
+import { Button, Col, Container, Row } from "react-bootstrap"
 import FormLogin from "../Login/components/FormLogin";
 import { barcode } from "ionicons/icons";
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
@@ -10,13 +10,25 @@ import TittleAndSave from './components/TittleAndSave';
 import './styles/main.css';
 import Medidas from "./components/Medidas";
 import Precio from "./components/Precio";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { restoreProduct } from "../../redux/actions/producto.actions";
 
 
 const Editar = () => {
+    const dispatch = useDispatch();
     const openScanner = async () => {
         const data = await BarcodeScanner.scan();
         console.log(`Barcode data: ${data.text}`);
     };
+
+    useEffect(()=>{
+        console.log('Producto');
+
+        return ()=>{
+            dispatch(restoreProduct());
+        };
+    },[]);
 
     const handdleSave = (e:any) => {
         e.preventDefault();
