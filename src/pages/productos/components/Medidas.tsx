@@ -21,7 +21,8 @@ const Medidas = () => {
         <Form.Control 
             as='select' 
             onChange={handleChange(MEDIDA_PRODUCTO)}
-            value={producto.medida}>
+            value={producto.medida}
+        >
             <option value=''>--</option>
             <option value='KILO'>KILO</option>
             <option value='LITRO'>LITRO</option>

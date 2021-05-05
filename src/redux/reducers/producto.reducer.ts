@@ -1,5 +1,5 @@
 import { actionDefault } from "../types/actionDefaut.type";
-import { BARCODE_LIST_PRODUCTO, BARCODE_PRODUCTO, DESCRIPCION_PRODUCTO, MARGEN_PRODUCTO, MEDIDA_PRODUCTO, PRECIO_PRODUCTO, productoType, RESTORE_PRODUCTO, UNIDADES_PRODUCTO, URL_PHOTO_PRODUCTO } from "../types/producto.type";
+import { BARCODE_LIST_PRODUCTO, BARCODE_PRODUCTO, COSTO_PRODUCTO, DESCRIPCION_PRODUCTO, MARGEN_PRODUCTO, MEDIDA_PRODUCTO, PRECIO_PRODUCTO, productoType, RESTORE_PRODUCTO, UNIDADES_PRODUCTO, URL_PHOTO_PRODUCTO } from "../types/producto.type";
 
 
 export const productoInitState:productoType = {
@@ -26,12 +26,14 @@ export const producto = (state=productoInitState,actions:actionDefault):producto
             return {...state,description: actions.value};
         case MEDIDA_PRODUCTO:
             return {...state,medida: actions.value};
+        case COSTO_PRODUCTO:
+            return {...state,costo: actions.value};
+        case PRECIO_PRODUCTO:
+            return {...state,precio: actions.value};
         case UNIDADES_PRODUCTO:
             return {...state,unidades: actions.value};
         case MARGEN_PRODUCTO:
             return {...state,margen: actions.value};
-        case PRECIO_PRODUCTO:
-            return {...state,precio: actions.value};
         case BARCODE_LIST_PRODUCTO:
             return {...state,barcodes: [...state.barcodes,actions.value]};
         default:

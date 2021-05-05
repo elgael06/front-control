@@ -9,6 +9,7 @@ import TittleAndSave from './components/TittleAndSave';
 
 import './styles/main.css';
 import Medidas from "./components/Medidas";
+import Precio from "./components/Precio";
 
 
 const Editar = () => {
@@ -30,46 +31,9 @@ const Editar = () => {
                 <Col sm={12}><br/></Col>
                 <Genericos />
                 <Medidas />
-                
+                <Precio />
 
-                <Col xs={6} sm={3}>
-                    <FormLogin
-                        title='Costo'
-                        required={true}
-                        maxLength={8}
-                        step={0.01}
-                        type='number'
-                        name='Costo'
-                        placeholder='0.00'
-                        className='numeric'
-                    />
-                </Col>
-
-                <Col xs={6} sm={3}>
-                    <FormLogin
-                        title='Precio'
-                        required={true}
-                        maxLength={8}
-                        step={0.01}
-                        type='number'
-                        name='Precio'
-                        placeholder='0.00'
-                        className='numeric'
-                    />
-                </Col>
-
-                <Col xs={6} sm={3}>
-                    <FormLogin
-                        title='Margen (%)'
-                        required={true}
-                        maxLength={5}
-                        type='number'
-                        step={0.01}
-                        name='margen'
-                        placeholder='0.000 %'
-                        className='numeric'
-                    />
-                </Col>
+               
                 <Col sm={3} xs={7} className='content-barcode'>
                     <FormLogin
                         title='Barcode'
