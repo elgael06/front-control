@@ -11,6 +11,7 @@ export type productoType  = {
 }
 
 export const RESTORE_PRODUCTO       = 'RESTORE_PRODUCTO';
+export const URL_PHOTO_PRODUCTO     = 'URL_PHOTO_PRODUCTO'; 
 export const BARCODE_PRODUCTO       = 'BARCODE_PRODUCTO';
 export const DESCRIPCION_PRODUCTO   = 'DESCRIPCION_PRODUCTO';
 export const MEDIDA_PRODUCTO        = 'MEDIDA_PRODUCTO';

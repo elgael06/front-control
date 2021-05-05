@@ -1,5 +1,5 @@
 import { actionDefault } from "../types/actionDefaut.type";
-import { BARCODE_LIST_PRODUCTO, BARCODE_PRODUCTO, DESCRIPCION_PRODUCTO, MARGEN_PRODUCTO, MEDIDA_PRODUCTO, PRECIO_PRODUCTO, productoType, RESTORE_PRODUCTO, UNIDADES_PRODUCTO } from "../types/producto.type";
+import { BARCODE_LIST_PRODUCTO, BARCODE_PRODUCTO, DESCRIPCION_PRODUCTO, MARGEN_PRODUCTO, MEDIDA_PRODUCTO, PRECIO_PRODUCTO, productoType, RESTORE_PRODUCTO, UNIDADES_PRODUCTO, URL_PHOTO_PRODUCTO } from "../types/producto.type";
 
 
 export const productoInitState:productoType = {
@@ -18,9 +18,9 @@ export const producto = (state=productoInitState,actions:actionDefault):producto
     switch (actions.type){
         case RESTORE_PRODUCTO:
             return productoInitState;
+        case URL_PHOTO_PRODUCTO:
+            return {...state,urlPhoto: actions.value};
         case BARCODE_PRODUCTO:
-            return {...state,selected_barcode: actions.value};
-        case DESCRIPCION_PRODUCTO:
             return {...state,description: actions.value};
         case DESCRIPCION_PRODUCTO:
             return {...state,description: actions.value};
@@ -28,12 +28,10 @@ export const producto = (state=productoInitState,actions:actionDefault):producto
             return {...state,medida: actions.value};
         case UNIDADES_PRODUCTO:
             return {...state,unidades: actions.value};
-        case UNIDADES_PRODUCTO:
-            return {...state,costo: actions.value};
-        case PRECIO_PRODUCTO:
-            return {...state,precio: actions.value};
         case MARGEN_PRODUCTO:
             return {...state,margen: actions.value};
+        case PRECIO_PRODUCTO:
+            return {...state,precio: actions.value};
         case BARCODE_LIST_PRODUCTO:
             return {...state,barcodes: [...state.barcodes,actions.value]};
         default:
