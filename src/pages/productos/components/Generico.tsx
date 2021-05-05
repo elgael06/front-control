@@ -1,19 +1,14 @@
-import { IonImg } from "@ionic/react";
 import { Col } from "react-bootstrap";
 
 
 import foto from '../../Gastos/assets/img/foto.png';
 import FormLogin from "../../Login/components/FormLogin";
+import CaptureProductImg from "./CaptureProductImg";
 
 const Genericos = () => {
 
     return (<>
-        <Col sm={3}>
-           {/* <IonAvatar> */}
-            <IonImg style={{height:65}} src={foto} />
-           {/* </IonAvatar> */}
-           <hr/>
-        </Col>           
+        <CaptureProductImg />
         
         <Col sm={6}>
            <FormLogin
