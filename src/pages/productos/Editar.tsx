@@ -5,9 +5,10 @@ import { barcode } from "ionicons/icons";
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 
 import Genericos from './components/Generico';
+import TittleAndSave from './components/TittleAndSave';
 
 import './styles/main.css';
-import TittleAndSave from './components/TittleAndSave';
+import Medidas from "./components/Medidas";
 
 
 const Editar = () => {
@@ -28,29 +29,8 @@ const Editar = () => {
                 <TittleAndSave />
                 <Col sm={12}><br/></Col>
                 <Genericos />
-
-                <Col xs={6} sm={3}>
-                    <Form.Group>
-                        <Form.Label>Medida</Form.Label>
-                        <Form.Control as='select'>
-                            <option>KILO</option>
-                            <option>LITRO</option>
-                            <option>PIEZA</option>
-                        </Form.Control>
-                    </Form.Group>
-                </Col>
-
-                <Col xs={6} sm={3}>
-                    <FormLogin
-                        title='Unidades'
-                        required={true}
-                        maxLength={5}
-                        type='number'
-                        name='unidad'
-                        placeholder='0.000'
-                        className='numeric'
-                    />
-                </Col>
+                <Medidas />
+                
 
                 <Col xs={6} sm={3}>
                     <FormLogin

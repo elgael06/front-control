@@ -1,11 +1,18 @@
 import { Col } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { setValue } from "../../../redux/actions/producto.actions";
+import { DESCRIPCION_PRODUCTO, productoType } from "../../../redux/types/producto.type";
 
-
-import foto from '../../Gastos/assets/img/foto.png';
 import FormLogin from "../../Login/components/FormLogin";
 import CaptureProductImg from "./CaptureProductImg";
 
 const Genericos = () => {
+    const producto:productoType = useSelector((state:any)=> state.producto);
+    const dispatch = useDispatch();
+
+    const handleChange = (e:any) =>{
+        dispatch(setValue(DESCRIPCION_PRODUCTO,e.target.value))
+    }
 
     return (<>
         <CaptureProductImg />
@@ -17,6 +24,8 @@ const Genericos = () => {
                minLength={4}
                type='text'
                name='producto'
+               onChange={handleChange}
+               value={producto.description}
                placeholder='Descripcion...'
            />
         </Col> 

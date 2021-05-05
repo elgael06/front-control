@@ -1,7 +1,7 @@
 export type productoType  = {
     urlPhoto:string,
     description:string,
-    medida:'KILO'|'LITRO'|'PIEZA',
+    medida:''|'KILO'|'LITRO'|'PIEZA',
     unidades:number,
     costo:number,
     precio:number,

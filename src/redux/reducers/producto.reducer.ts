@@ -5,7 +5,7 @@ import { BARCODE_LIST_PRODUCTO, BARCODE_PRODUCTO, DESCRIPCION_PRODUCTO, MARGEN_P
 export const productoInitState:productoType = {
     urlPhoto        : '',
     description     : '',
-    medida          : 'KILO',
+    medida          : '',
     unidades        : 0.00,
     costo           : 0.01,
     precio          : 0.01,
@@ -21,7 +21,7 @@ export const producto = (state=productoInitState,actions:actionDefault):producto
         case URL_PHOTO_PRODUCTO:
             return {...state,urlPhoto: actions.value};
         case BARCODE_PRODUCTO:
-            return {...state,description: actions.value};
+            return {...state,selected_barcode: actions.value};
         case DESCRIPCION_PRODUCTO:
             return {...state,description: actions.value};
         case MEDIDA_PRODUCTO:
