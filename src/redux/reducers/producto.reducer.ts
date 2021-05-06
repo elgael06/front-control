@@ -7,14 +7,15 @@ export const productoInitState:productoType = {
     description     : '',
     medida          : '',
     unidades        : 0.00,
-    costo           : 0.01,
-    precio          : 0.01,
+    costo           : 1.00,
+    precio          : 1.20,
     margen          : 20,
     selected_barcode: '',
     barcodes        : []
 };
 
 export const producto = (state=productoInitState,actions:actionDefault):productoType => {
+    let margen=0;
     switch (actions.type){
         case RESTORE_PRODUCTO:
             return productoInitState;
@@ -27,13 +28,18 @@ export const producto = (state=productoInitState,actions:actionDefault):producto
         case MEDIDA_PRODUCTO:
             return {...state,medida: actions.value};
         case COSTO_PRODUCTO:
-            return {...state,costo: actions.value};
+            margen = ((state.precio/actions.value)-1)*100;
+            return {...state,costo: actions.value,margen: parseFloat( margen.toFixed(2) )};
         case PRECIO_PRODUCTO:
-            return {...state,precio: actions.value};
+             margen = ((actions.value/state.costo)-1)*100;
+            return {...state,precio: actions.value,margen: parseFloat( margen.toFixed(2) )};
         case UNIDADES_PRODUCTO:
             return {...state,unidades: actions.value};
         case MARGEN_PRODUCTO:
-            return {...state,margen: actions.value};
+            const new_margen =(actions.value/100)+1;
+            console.log(new_margen);
+            const precio = state.costo * new_margen;
+            return {...state,margen: actions.value,precio:parseFloat( precio.toFixed(2) )};
         case BARCODE_LIST_PRODUCTO:
             return {...state,barcodes: [...state.barcodes,actions.value]};
         default:
