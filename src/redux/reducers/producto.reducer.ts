@@ -1,5 +1,5 @@
 import { actionDefault } from "../types/actionDefaut.type";
-import { BARCODE_LIST_PRODUCTO, BARCODE_PRODUCTO, COSTO_PRODUCTO, DESCRIPCION_PRODUCTO, MARGEN_PRODUCTO, MEDIDA_PRODUCTO, PRECIO_PRODUCTO, productoType, RESTORE_PRODUCTO, UNIDADES_PRODUCTO, URL_PHOTO_PRODUCTO } from "../types/producto.type";
+import { BARCODE_LIST_PRODUCTO, BARCODE_PRODUCTO, COSTO_PRODUCTO, DESCRIPCION_PRODUCTO, MARGEN_PRODUCTO, MEDIDA_PRODUCTO, PRECIO_PRODUCTO, productoType, RESTORE_PRODUCTO, RM_BARCODE_LIST_PRODUCTO, UNIDADES_PRODUCTO, URL_PHOTO_PRODUCTO } from "../types/producto.type";
 
 
 export const productoInitState:productoType = {
@@ -42,6 +42,8 @@ export const producto = (state=productoInitState,actions:actionDefault):producto
             return {...state,margen: actions.value,precio:parseFloat( precio.toFixed(2) )};
         case BARCODE_LIST_PRODUCTO:
             return {...state,barcodes: [...state.barcodes,actions.value]};
+        case RM_BARCODE_LIST_PRODUCTO:
+            return {...state, barcodes:state.barcodes.filter((e:string,id:number)=> id!==actions.value)};
         default:
             return state;
     }

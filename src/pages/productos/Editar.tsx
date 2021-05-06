@@ -1,33 +1,24 @@
-import { IonIcon } from "@ionic/react";
-import { Button, Col, Container, Row } from "react-bootstrap"
-import FormLogin from "../Login/components/FormLogin";
-import { barcode } from "ionicons/icons";
-import { BarcodeScanner } from '@ionic-native/barcode-scanner';
-
-import Genericos from './components/Generico';
-import TittleAndSave from './components/TittleAndSave';
-
-import './styles/main.css';
-import Medidas from "./components/Medidas";
-import Precio from "./components/Precio";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
+
+import { Col, Container, Row } from "react-bootstrap";
+import Genericos from './components/Generico';
+import TittleAndSave from './components/TittleAndSave';
+import Medidas from "./components/Medidas";
+import Precio from "./components/Precio";
+import ModalBarcode from "./components/ModalBarcode";
+
 import { restoreProduct } from "../../redux/actions/producto.actions";
+
+import './styles/main.css';
 
 
 const Editar = () => {
     const dispatch = useDispatch();
-    const openScanner = async () => {
-        const data = await BarcodeScanner.scan();
-        console.log(`Barcode data: ${data.text}`);
-    };
 
     useEffect(()=>{
         console.log('Producto');
-
-        return ()=>{
-            dispatch(restoreProduct());
-        };
+        return ()=>{dispatch(restoreProduct())};
     },[]);
 
     const handdleSave = (e:any) => {
@@ -40,13 +31,13 @@ const Editar = () => {
             <form onSubmit={handdleSave}>
             <Row>
                 <TittleAndSave />
-                <Col sm={12}><br/></Col>
+                <Col sm={12}><hr/></Col>
                 <Genericos />
                 <Medidas />
                 <Precio />
-
+                <ModalBarcode />
                
-                <Col sm={3} xs={7} className='content-barcode'>
+                {/* <Col sm={3} xs={7} className='content-barcode'>
                     <FormLogin
                         title='Barcode'
                         type='number'
@@ -66,11 +57,7 @@ const Editar = () => {
                             <option>021605</option>
                         </optgroup>
                     </datalist>
-                </Col>
-
-                <Col sm={3} xs={5} className='content-barcode'>
-                    <Button block onClick={openScanner}> <IonIcon icon={barcode} slot='start' /> Codigo</Button>                   
-                </Col>
+                </Col> */}
             </Row>
             </form>
         </Container>

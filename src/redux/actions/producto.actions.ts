@@ -1,4 +1,4 @@
-import { BARCODE_LIST_PRODUCTO, RESTORE_PRODUCTO } from "../types/producto.type";
+import { BARCODE_LIST_PRODUCTO, RESTORE_PRODUCTO, RM_BARCODE_LIST_PRODUCTO } from "../types/producto.type";
 
 
 export const setValue = (type: string, value:string) => {
@@ -21,3 +21,10 @@ export const setListaBarcode = ( value:string)=> {
         value
     });
 };
+
+export const removeBarcodeList = (id:number) => {
+    return {
+        type:RM_BARCODE_LIST_PRODUCTO,
+        value:id
+    }
+}
