@@ -14,7 +14,7 @@ export const login = async (username = '', password = '') => {
             setToken(data.token);
         }
         return {...data,res:status};
-    } catch(error){
+    } catch(error: any){
         return {
             message: error.toString(),
             status: false,
@@ -36,7 +36,7 @@ export const sendConfirmInfoLogin = async (datos: {
     try {
         const { data, status } = await axios.post(url, datos);
         return status === 200 ? { ...data } : error;
-    } catch (err) {
+    } catch (err: any) {
         error.messaje += err.toString();
         console.log(err);
         return error;

@@ -23,13 +23,11 @@ const NuevoUsuario: React.FC = () => {
         puesto=''
     }: userInitial = useSelector((state: any) => state.usurioSeleccionado);
 
-    const _initial = () => {
+    useEffect(() => {
         dispatch(defaultUserValues());
         idUser && dispatch(usuarioId(idUser));
         
-    }
-    // eslint-disable-next-line
-    useEffect(_initial, [idUser]);
+    }, [idUser]);
 
     const handleSave = (e: any) => {
         e.preventDefault();
@@ -52,7 +50,6 @@ const NuevoUsuario: React.FC = () => {
     }
 
     return <Container>
-       
         <Title name={ <div  style={{justifyContent:'center',display:'flex',alignItems:'flex-end',paddingBottom:20}}>
             <IonIcon icon={idUser ? createOutline : personAddOutline  } style={{fontSize:40,paddingRight:10}} /> 
             <label> {idUser ?'Editar': 'Crear'}</label>
@@ -111,14 +108,18 @@ const NuevoUsuario: React.FC = () => {
                             onChange={(e:any) => dispatch(changePuesto( e.target.value))}
                         >
                             <option value=''> -- </option>
-                            <option>Administrador</option>
-                            <option>Direccion</option>
-                            <option>Finanzas</option>
-                            <option>Recursos humanos</option>
-                            <option>Produccion</option>
-                            <option>Ventas</option>
-                            <option>Operaciones</option>
-                            <option>Logistica</option>
+                            {
+                                [
+                                    'Administrador',
+                                    'Direccion',
+                                    'Finanzas',
+                                    'Recursos humanos',
+                                    'Produccion',
+                                    'Ventas',
+                                    'Operaciones',
+                                    'Logistica',
+                                ].map((item, key) => <option key={key}>{item}</option>)
+                            }
                         </Form.Control>
                     </Form.Group>
                 </Col>
