@@ -28,11 +28,11 @@ import PrivateRoutes from './routes/privates.routes';
 
 const App: React.FC = () => {
 
-  const { status=false } = useSelector((state: any) => state.sesion);
+  const { status = false } = useSelector((state: any) => state.sesion);
   return <IonApp>
     {status ? <PrivateRoutes /> : <LoginRoutes />}
     <LoadingComp />
-    <DialogComp /> 
+    <DialogComp />
   </IonApp>;
 };
 
